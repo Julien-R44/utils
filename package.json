@@ -1,7 +1,7 @@
 {
   "name": "@julr/utils",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "packageManager": "pnpm@9.15.4",
   "description": "",
   "author": "Julien Ripouteau <julien@ripouteau.com>",
@@ -31,7 +31,7 @@
   "scripts": {
     "build": "tsup-node",
     "lint": "eslint .",
-    "release": "bumpp --commit --push --tag && pnpm publish",
+    "release": "pnpm build && bumpp --commit --push --tag && pnpm publish",
     "typecheck": "tsc --noEmit",
     "test": "tsx bin/test.ts"
   },
