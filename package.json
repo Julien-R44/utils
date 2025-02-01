@@ -1,23 +1,25 @@
 {
-  "name": "starter-ts",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "name": "@julr/utils",
   "type": "module",
-  "homepage": "https://github.com/Julien-R44/[name]#readme",
-  "bugs": {
-    "url": "https://github.com/Julien-R44/[name]/issues"
-  },
-  "license": "MIT",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.4",
+  "description": "",
   "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Julien-R44",
+  "homepage": "https://github.com/Julien-R44/[name]#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Julien-R44/[name].git"
   },
-  "funding": "https://github.com/sponsors/Julien-R44",
+  "bugs": {
+    "url": "https://github.com/Julien-R44/[name]/issues"
+  },
+  "keywords": [],
   "exports": {
     "./logger": "./build/esm/logger/index.js",
-    "./misc": "./build/esm/misc.js"
+    "./misc": "./build/esm/misc.js",
+    "./string": "./build/esm/string.js"
   },
   "files": [
     "dist"
@@ -42,7 +44,8 @@
   "tsup": {
     "entry": [
       "./src/logger/index.ts",
-      "./src/misc.ts"
+      "./src/misc.ts",
+      "./src/string.ts"
     ],
     "outDir": "./build",
     "clean": true,
@@ -52,6 +55,5 @@
     "sourcemap": false,
     "target": "esnext"
   },
-  "prettier": "@julr/tooling-configs/prettier",
-  "packageManager": "pnpm@9.15.4"
+  "prettier": "@julr/tooling-configs/prettier"
 }
