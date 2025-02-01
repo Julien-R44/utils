@@ -20,7 +20,8 @@
     "./logger": "./build/logger/index.js",
     "./misc": "./build/misc.js",
     "./string/bytes": "./build/string/bytes/index.js",
-    "./array/chunkify": "./build/array/chunkify.js"
+    "./array/chunkify": "./build/array/chunkify.js",
+    "./is": "./build/is/index.js"
   },
   "files": [
     "build"
@@ -57,7 +58,8 @@
       "./src/logger/index.ts",
       "./src/misc.ts",
       "./src/string/bytes/index.ts",
-      "./src/array/chunkify.ts"
+      "./src/array/chunkify.ts",
+      "./src/is/index.ts"
     ],
     "outDir": "./build",
     "clean": true,
