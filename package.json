@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
+  "type": "module",
   "homepage": "https://github.com/Julien-R44/[name]#readme",
   "bugs": {
     "url": "https://github.com/Julien-R44/[name]/issues"
   },
-  "packageManager": "pnpm@7.0.1",
   "license": "MIT",
   "author": "Julien Ripouteau <julien@ripouteau.com>",
   "repository": {
@@ -15,92 +15,43 @@
     "url": "git+https://github.com/Julien-R44/[name].git"
   },
   "funding": "https://github.com/sponsors/Julien-R44",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
+    "./logger": "./build/esm/logger/index.js",
+    "./misc": "./build/esm/misc.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && unbuild",
-    "dev": "unbuild --stub",
-    "lint": "eslint . --ext=.ts",
-    "format": "prettier --write .",
-    "prepublishOnly": "nr build",
+    "build": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "lint": "eslint .",
     "release": "bumpp --commit --push --tag && pnpm publish",
-    "start": "esmo src/index.ts",
-    "test": "esmo bin/test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.16.2",
-    "@japa/assert": "^1.3.4",
-    "@japa/runner": "^2.0.7",
-    "@japa/spec-reporter": "^1.1.12",
-    "@types/node": "^17.0.31",
-    "bumpp": "^7.1.1",
-    "eslint": "^8.15.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-adonis": "^2.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "pnpm": "^7.0.1",
-    "prettier": "^2.6.2",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.6.4",
-    "unbuild": "^0.7.4",
-    "esmo": "^0.14.1"
+    "@japa/assert": "^4.0.1",
+    "@japa/runner": "^4.2.0",
+    "@julr/tooling-configs": "^3.1.0",
+    "@types/node": "^22.13.0",
+    "bumpp": "^10.0.1",
+    "eslint": "^9.19.0",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:adonis/typescriptPackage",
-      "prettier"
+  "tsup": {
+    "entry": [
+      "./src/logger/index.ts",
+      "./src/misc.ts"
     ],
-    "plugins": [
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "auto"
-        }
-      ]
-    }
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "legacyOutput": true,
+    "dts": false,
+    "sourcemap": false,
+    "target": "esnext"
   },
-  "eslintIgnore": [
-    "build",
-    "dist"
-  ],
-  "prettier": {
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true,
-    "useTabs": false,
-    "quoteProps": "consistent",
-    "bracketSpacing": true,
-    "arrowParens": "always",
-    "printWidth": 100
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "openapi-types"
-      ]
-    }
-  }
+  "prettier": "@julr/tooling-configs/prettier",
+  "packageManager": "pnpm@9.15.4"
 }
