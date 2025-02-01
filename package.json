@@ -28,7 +28,8 @@
     "build": "tsup-node && tsc --emitDeclarationOnly --declaration",
     "lint": "eslint .",
     "release": "bumpp --commit --push --tag && pnpm publish",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"No tests for now\" && exit 0"
   },
   "devDependencies": {
     "@japa/assert": "^4.0.1",
