@@ -1,5 +1,7 @@
 import { setTimeout } from 'node:timers/promises'
 
+import { ms } from './string/ms.js'
+
 /**
  * Useful for creating a return value that can be destructured
  * or iterated over.
@@ -28,6 +30,6 @@ export function hybridReturn<T extends Record<string, unknown>, A extends readon
  * easily auto-imported through the VSCode suggestions
  * since `setTimeout` import the non-awaitable version
  */
-export async function sleep(ms: number) {
-  return await setTimeout(ms)
+export async function sleep(milliseconds: number | string) {
+  return await setTimeout(ms.parse(milliseconds))
 }

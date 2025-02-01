@@ -1,6 +1,6 @@
 import { test } from '@japa/runner'
 
-import { bytes } from '../src/string/bytes/index.js'
+import { bytes } from '../src/string/bytes.js'
 
 test.group('Bytes', () => {
   test('throws when incorrect bytes value', ({ assert }) => {

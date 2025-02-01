@@ -19,7 +19,8 @@
   "exports": {
     "./logger": "./build/logger/index.js",
     "./misc": "./build/misc.js",
-    "./string/bytes": "./build/string/bytes/index.js",
+    "./string/bytes": "./build/string/bytes.js",
+    "./string/ms": "./build/string/ms.js",
     "./array/chunkify": "./build/array/chunkify.js",
     "./is": "./build/is/index.js"
   },
@@ -38,6 +39,7 @@
     "test": "tsx bin/test.ts"
   },
   "dependencies": {
+    "@lukeed/ms": "^2.0.2",
     "bytes": "^3.1.2"
   },
   "devDependencies": {
@@ -57,7 +59,8 @@
     "entry": [
       "./src/logger/index.ts",
       "./src/misc.ts",
-      "./src/string/bytes/index.ts",
+      "./src/string/bytes.ts",
+      "./src/string/ms.ts",
       "./src/array/chunkify.ts",
       "./src/is/index.ts"
     ],
