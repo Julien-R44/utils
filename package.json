@@ -19,7 +19,8 @@
   "exports": {
     "./logger": "./build/logger/index.js",
     "./misc": "./build/misc.js",
-    "./string/bytes": "./build/string/bytes/index.js"
+    "./string/bytes": "./build/string/bytes/index.js",
+    "./array/chunkify": "./build/array/chunkify.js"
   },
   "files": [
     "build"
@@ -55,7 +56,8 @@
     "entry": [
       "./src/logger/index.ts",
       "./src/misc.ts",
-      "./src/string/bytes/index.ts"
+      "./src/string/bytes/index.ts",
+      "./src/array/chunkify.ts"
     ],
     "outDir": "./build",
     "clean": true,
