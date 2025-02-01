@@ -1,4 +1,6 @@
-# [name]
+# @julr/utils
+
+Just some utilities functions for my projects.
 
 ## License
 
