@@ -1,3 +1,7 @@
+/**
+ * Simplified version of https://github.com/sindresorhus/is since
+ * I generally only use a few of the functions.
+ */
 import type { Falsy, Class } from './types.js'
 
 export function isBoolean(val: any): val is boolean {
