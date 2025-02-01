@@ -24,6 +24,10 @@
   "files": [
     "build"
   ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "scripts": {
     "build": "tsup-node",
     "lint": "eslint .",
