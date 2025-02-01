@@ -1,9 +1,6 @@
 import type { Logger, Levels, LogObject } from './types.js'
 
-/**
- * A logger that stores all logs in an array.
- */
-export class TestLogger implements Logger {
+class TestLogger implements Logger {
   logs: {
     level: 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal'
     msg: any
@@ -37,6 +34,14 @@ export class TestLogger implements Logger {
   fatal(obj: unknown, msg?: unknown): void {
     this.logs.push({ level: 'fatal', msg, obj })
   }
+}
+
+/**
+ * A logger that stores all logs in an array.
+ * Useful for testing purposes.
+ */
+export function testLogger() {
+  return new TestLogger()
 }
 
 /**
