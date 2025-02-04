@@ -17,32 +17,34 @@
   },
   "keywords": [],
   "exports": {
-    "./is": "./build/is.js",
-    "./misc": "./build/misc.js",
-    "./types": "./build/types.js",
-    "./object": "./build/object.js",
-    "./array": "./build/array/index.js",
-    "./functions": "./build/functions.js",
-    "./logger": "./build/logger/index.js",
-    "./string/ms": "./build/string/ms.js",
-    "./string": "./build/string/index.js",
-    "./string/case": "./build/string/case.js",
-    "./string/bytes": "./build/string/bytes.js",
-    "./array/chunkify": "./build/array/chunkify.js"
+    "./is": "./build/src/is.js",
+    "./misc": "./build/src/misc.js",
+    "./types": "./build/src/types.js",
+    "./object": "./build/src/object.js",
+    "./array": "./build/src/array/index.js",
+    "./functions": "./build/src/functions.js",
+    "./logger": "./build/src/logger/index.js",
+    "./string/ms": "./build/src/string/ms.js",
+    "./string": "./build/src/string/index.js",
+    "./string/case": "./build/src/string/case.js",
+    "./string/bytes": "./build/src/string/bytes.js",
+    "./array/chunkify": "./build/src/array/chunkify.js"
   },
   "files": [
-    "build"
+    "!build/bin",
+    "!build/tests",
+    "build/"
   ],
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
   "scripts": {
-    "build": "tsup-node",
     "lint": "eslint .",
-    "release": "pnpm build && bumpp --commit --push --tag && pnpm publish",
+    "test": "tsx bin/test.ts",
     "typecheck": "tsc --noEmit",
-    "test": "tsx bin/test.ts"
+    "build": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "release": "pnpm build && bumpp --commit --push --tag && pnpm publish"
   },
   "dependencies": {
     "@lukeed/ms": "^2.0.2",
@@ -61,28 +63,6 @@
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
-  },
-  "tsup": {
-    "entry": [
-      "./src/is.ts",
-      "./src/misc.ts",
-      "./src/types.ts",
-      "./src/object.ts",
-      "./src/functions.ts",
-      "./src/string/ms.ts",
-      "./src/string/case.ts",
-      "./src/array/index.ts",
-      "./src/logger/index.ts",
-      "./src/string/bytes.ts",
-      "./src/string/index.ts",
-      "./src/array/chunkify.ts"
-    ],
-    "outDir": "./build",
-    "clean": true,
-    "format": "esm",
-    "dts": true,
-    "sourcemap": false,
-    "target": "esnext"
   },
   "prettier": "@julr/tooling-configs/prettier"
 }
