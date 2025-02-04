@@ -22,7 +22,7 @@
     "./string/bytes": "./build/string/bytes.js",
     "./string/ms": "./build/string/ms.js",
     "./array/chunkify": "./build/array/chunkify.js",
-    "./array/utils": "./build/array/utils.js",
+    "./array": "./build/array/index.js",
     "./types": "./build/types.js",
     "./is": "./build/is/index.js"
   },
@@ -65,7 +65,7 @@
       "./src/string/ms.ts",
       "./src/array/chunkify.ts",
       "./src/is/index.ts",
-      "./src/array/utils.ts",
+      "./src/array/index.ts",
       "./src/types.ts"
     ],
     "outDir": "./build",
