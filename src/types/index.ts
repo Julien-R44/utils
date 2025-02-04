@@ -1,7 +1,7 @@
 /**
  * Promise or maybe not
  */
-export type Awaitable<T> = T | Promise<T>
+export type Awaitable<T> = T | PromiseLike<T>
 
 /**
  * Array or maybe not
@@ -9,9 +9,22 @@ export type Awaitable<T> = T | Promise<T>
 export type Arrayable<T> = T | Array<T>
 
 /**
+ * A function that may return a promise.
+ */
+export type AwaitableFn<Args extends unknown[] = unknown[], Result = void> = Fn<
+  Awaitable<Result>,
+  Args
+>
+
+/**
+ * Null or whatever
+ */
+export type Nullable<T> = T | null | undefined
+
+/**
  * Function. I personally prefer this syntax over the native `Function` type.
  */
-export type Fn<Args extends unknown[] = any[], Result = void> = (...args: Args) => Result
+export type Fn<Result = void, Args extends unknown[] = unknown[]> = (...args: Args) => Result
 
 /**
  * Constructor type.
