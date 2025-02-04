@@ -17,16 +17,17 @@
   },
   "keywords": [],
   "exports": {
-    "./logger": "./build/logger/index.js",
+    "./is": "./build/is.js",
     "./misc": "./build/misc.js",
-    "./string/bytes": "./build/string/bytes.js",
-    "./string/ms": "./build/string/ms.js",
-    "./string/case": "./build/string/case.js",
-    "./string": "./build/string/index.js",
-    "./array/chunkify": "./build/array/chunkify.js",
-    "./array": "./build/array/index.js",
     "./types": "./build/types.js",
-    "./is": "./build/is.js"
+    "./object": "./build/object.js",
+    "./array": "./build/array/index.js",
+    "./logger": "./build/logger/index.js",
+    "./string/ms": "./build/string/ms.js",
+    "./string": "./build/string/index.js",
+    "./string/case": "./build/string/case.js",
+    "./string/bytes": "./build/string/bytes.js",
+    "./array/chunkify": "./build/array/chunkify.js"
   },
   "files": [
     "build"
@@ -70,6 +71,7 @@
       "./src/string/case.ts",
       "./src/array/chunkify.ts",
       "./src/is.ts",
+      "./src/object.ts",
       "./src/array/index.ts",
       "./src/types.ts"
     ],

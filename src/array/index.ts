@@ -25,3 +25,10 @@ export function uniqBy<T, U>(arr: readonly T[], mapper: (item: T) => U): T[] {
 export function uniq<T>(arr: readonly T[]): T[] {
   return Array.from(new Set(arr))
 }
+
+/**
+ * Pick a random element from the array
+ */
+export function draw<T>(arr: readonly T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
