@@ -23,8 +23,30 @@ export function isFunction(value: unknown): value is Function {
   return typeof value === 'function'
 }
 
+/**
+ * Keep in mind arrays and functions are objects.
+ * So maybe you want to use isPlainObject instead.
+ */
 export function isObject(value: unknown): value is object {
   return !isNull(value) && (typeof value === 'object' || isFunction(value))
+}
+
+/**
+ * Returns true if the value was creating using `{}`, `new Object()`, or `Object.create(null)`.
+ */
+export function isPlainObject<Value = unknown>(
+  value: unknown,
+): value is Record<PropertyKey, Value> {
+  if (typeof value !== 'object' || value === null) return false
+  const prototype = Object.getPrototypeOf(value)
+
+  return (
+    (prototype === null ||
+      prototype === Object.prototype ||
+      Object.getPrototypeOf(prototype) === null) &&
+    !(Symbol.toStringTag in value) &&
+    !(Symbol.iterator in value)
+  )
 }
 
 export function isUndefined(value: unknown): value is undefined {
@@ -74,6 +96,7 @@ export const is = {
   string: isString,
   function: isFunction,
   object: isObject,
+  plainObject: isPlainObject,
   undefined: isUndefined,
   null: isNull,
   nullOrUndefined: isNullOrUndefined,

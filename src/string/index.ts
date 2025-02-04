@@ -27,3 +27,19 @@ export function ensureStartsWith(prefix: string, str: string) {
   if (str.startsWith(prefix)) return str
   return prefix + str
 }
+
+/**
+ * Remove the prefix from the string
+ */
+export function removePrefix(prefix: string, str: string) {
+  if (str.startsWith(prefix)) return str.slice(prefix.length)
+  return str
+}
+
+/**
+ * Remove the suffix from the string
+ */
+export function removeSuffix(suffix: string, str: string) {
+  if (str.endsWith(suffix)) return str.slice(0, -suffix.length)
+  return str
+}
