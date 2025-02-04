@@ -19,7 +19,7 @@
   "exports": {
     "./is": "./build/src/is.js",
     "./misc": "./build/src/misc.js",
-    "./types": "./build/src/types.js",
+    "./types": "./build/src/types/index.js",
     "./object": "./build/src/object.js",
     "./array": "./build/src/array/index.js",
     "./functions": "./build/src/functions.js",
