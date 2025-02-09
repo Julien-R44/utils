@@ -128,3 +128,39 @@ export function pickBy<T extends Record<string, any>>(
 
   return result
 }
+
+/**
+ * Creates a new object with specified keys omitted.
+ */
+export function omit<T extends Record<string, any>, K extends keyof T>(
+  obj: T,
+  keys: readonly K[],
+): Omit<T, K> {
+  const result = { ...obj }
+
+  for (const key of keys) {
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    delete result[key]
+  }
+
+  return result as Omit<T, K>
+}
+
+/**
+ * Creates a new object composed of the properties that do not satisfy the predicate function
+ */
+export function omitBy<T extends Record<string, any>>(
+  obj: T,
+  shouldOmit: (value: T[keyof T], key: keyof T) => boolean,
+): Partial<T> {
+  const result: Partial<T> = {}
+
+  const keys = Object.keys(obj) as Array<keyof T>
+
+  for (const key of keys) {
+    const value = obj[key]
+    if (!shouldOmit(value, key)) result[key] = value
+  }
+
+  return result
+}
