@@ -47,3 +47,10 @@ export type Class<T, Arguments extends unknown[] = any[]> = {
  * See https://www.totaltypescript.com/concepts/the-prettify-helper
  */
 export type Prettify<T> = { [K in keyof T]: T[K] } & {}
+
+/**
+ * Return type of a function. Can be more concise than the native ReturnType since it support
+ * promises.
+ */
+export type ReturnType<T extends ((...args: any[]) => unknown) | undefined | null | false | ''> =
+  T extends (...args: any[]) => infer R ? (R extends PromiseLike<infer J> ? J : R) : never
