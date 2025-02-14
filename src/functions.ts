@@ -33,6 +33,15 @@ export function noop(): void {}
 export async function asyncNoop(): Promise<void> {}
 
 /**
+ * Just call the function.
+ */
+export function invoke(fn: undefined): undefined
+export function invoke<T>(fn: Fn<T>): T
+export function invoke<T>(fn?: Fn<T>): T {
+  return fn?.() as T
+}
+
+/**
  * Call every function in an array
  */
 export function batchInvoke(functions: Nullable<Fn>[]) {
